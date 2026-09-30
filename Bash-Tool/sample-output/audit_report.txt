@@ -1,0 +1,102 @@
+
+  _     _                  ____            
+ | |   (_)_ __  _   ___  _/ ___|  ___  ___ 
+ | |   | | '_ \| | | \ \/ /\___ \ / _ \/ __|
+ | |___| | | | | |_| |>  <  ___) |  __/ (__ 
+ |_____|_|_| |_|\__,_/_/\_\|____/ \___|\___|  Audit v1.0.0
+ IqraSec Academy | read-only Linux security checker
+ Started : 2026-09-28 06:24:54 UTC
+
+>> SYSTEM INFORMATION
+------------------------------------------------------------
+  [ INFO ] Hostname : vm
+  [ INFO ] OS       : unknown
+  [ INFO ] Kernel   : 6.18.44-fc-v42 (x86_64)
+  [ INFO ] Uptime   : up 2 minutes
+  [ INFO ] Run as   : root (uid 0)
+
+>> USER ACCOUNTS & AUTHENTICATION
+------------------------------------------------------------
+  [ FAIL ] Extra accounts with UID 0 (root privileges): backdoor
+           -> Fix: remove or change the UID of these accounts
+  [ WARN ] Duplicate UIDs found: 0
+           -> Fix: give each account a unique UID
+  [ PASS ] No accounts with empty passwords
+  [ WARN ] Password expiry not enforced (PASS_MAX_DAYS=99999)
+           -> Fix: set PASS_MAX_DAYS in /etc/login.defs
+  [ INFO ] Skipped sudoers check (not readable - use sudo)
+  [ INFO ] Accounts with an interactive shell: root,sync,ubuntu,claude,backdoor
+
+>> CRITICAL FILE PERMISSIONS
+------------------------------------------------------------
+  [ PASS ] /etc/passwd permissions OK (644, owner root)
+  [ FAIL ] /etc/group is too permissive (mode 666, expected <= 644)
+           -> Fix: chmod 644 /etc/group
+  [ PASS ] /etc/shadow permissions OK (640, owner root)
+  [ PASS ] /etc/gshadow permissions OK (640, owner root)
+  [ PASS ] /etc/ssh/sshd_config permissions OK (644, owner root)
+
+>> SSH SERVER CONFIGURATION
+------------------------------------------------------------
+  [ FAIL ] Root login over SSH is ENABLED
+           -> Fix: set 'PermitRootLogin no' in sshd_config
+  [ WARN ] Password authentication is enabled (yes)
+           -> Fix: use keys and set 'PasswordAuthentication no'
+  [ PASS ] Empty SSH passwords not permitted
+  [ WARN ] MaxAuthTries is 10 (recommended <= 4)
+           -> Fix: set 'MaxAuthTries 3'
+  [ WARN ] X11 forwarding enabled
+           -> Fix: set 'X11Forwarding no' unless needed
+  [ INFO ] SSH listens on port 22
+
+>> NETWORK EXPOSURE & FIREWALL
+------------------------------------------------------------
+  [ INFO ] Ports reachable from the network: tcp/22 tcp/23 tcp/3306 udp/69
+  [ FAIL ] Risky services exposed: 23=Telnet (cleartext),3306=MySQL,69=TFTP
+           -> Fix: disable the service or bind it to 127.0.0.1 / firewall it
+  [ INFO ] Could not determine firewall status (need root or no firewall tool installed)
+
+>> FILESYSTEM RISKS
+------------------------------------------------------------
+  [ PASS ] /tmp has the sticky bit set
+  [ FAIL ] World-writable files found in system directories
+           -> Fix: chmod o-w <file>
+           /etc/group
+           /etc/badconf
+  [ INFO ] SUID binaries found: 11
+  [ PASS ] All SUID binaries are on the common/expected list
+
+>> PATCH STATUS
+------------------------------------------------------------
+  [ PASS ] No pending package updates (per local apt cache)
+
+>> AUTHENTICATION LOG ANALYSIS
+------------------------------------------------------------
+  [ INFO ] No readable authentication log (try sudo)
+
+>> KERNEL HARDENING
+------------------------------------------------------------
+  [ PASS ] ASLR fully enabled (kernel.randomize_va_space=2)
+  [ PASS ] SYN-flood protection (net.ipv4.tcp_syncookies=1)
+  [ PASS ] IP forwarding disabled (net.ipv4.ip_forward=0)
+  [ WARN ] ICMP redirects ignored (net.ipv4.conf.all.accept_redirects=1, expected 0)
+           -> Fix: sysctl -w net.ipv4.conf.all.accept_redirects=0
+  [ WARN ] Reverse-path filtering (net.ipv4.conf.all.rp_filter=0, expected 1)
+           -> Fix: sysctl -w net.ipv4.conf.all.rp_filter=1
+  [ PASS ] No core dumps from SUID programs (fs.suid_dumpable=0)
+  [ PASS ] dmesg restricted to root (kernel.dmesg_restrict=1)
+
+>> SERVICES & SECURITY CONTROLS
+------------------------------------------------------------
+  [ PASS ] No legacy/insecure services running
+  [ INFO ] fail2ban is not running (optional brute-force protection)
+  [ INFO ] No mandatory access control (SELinux/AppArmor) detected
+
+============================================================
+ AUDIT SUMMARY
+============================================================
+  PASS: 15   WARN: 7   FAIL: 5   INFO: 14
+  Security score : 68/100  (grade C)  [#############.......]
+  Action needed: fix the FAIL items first, then the WARN items.
+  Report saved to: Bash-Tool/sample-output/audit_report.txt
+

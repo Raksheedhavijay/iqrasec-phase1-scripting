@@ -1,0 +1,338 @@
+{
+  "tool": "IOCX",
+  "version": "1.0.0",
+  "generated_utc": "2026-09-28 06:24:29",
+  "defanged": false,
+  "sources": [
+    {
+      "name": "samples/incident_report.txt",
+      "sha256": "ab9457e8a775b5975e57db42b535388a0778bf0b8254ad5a7c98d6b0dfc85046"
+    }
+  ],
+  "summary": {
+    "ipv4": 2,
+    "ipv6": 1,
+    "url": 3,
+    "domain": 9,
+    "email": 3,
+    "md5": 1,
+    "sha1": 1,
+    "sha256": 1,
+    "cve": 2,
+    "mitre": 4,
+    "filename": 5
+  },
+  "total_unique": 32,
+  "filtered_out": 3,
+  "iocs": {
+    "ipv4": [
+      {
+        "value": "45.83.64.12",
+        "count": 3,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "91.215.85.17",
+        "count": 2,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      }
+    ],
+    "ipv6": [
+      {
+        "value": "2a01:4f8:c17:1234::2",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      }
+    ],
+    "url": [
+      {
+        "value": "http://91.215.85.17:8080/stage2/update.exe",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "ip-in-url",
+          "non-standard-port",
+          "executable-download"
+        ]
+      },
+      {
+        "value": "http://bit.ly/3xYzAbC",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "url-shortener"
+        ]
+      },
+      {
+        "value": "https://secure-invoice.xyz/login/verify.php",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      }
+    ],
+    "domain": [
+      {
+        "value": "secure-invoice.xyz",
+        "count": 2,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      },
+      {
+        "value": "a1.b2.c3.d4.evil-cdn.click",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "suspicious-tld",
+          "deep-subdomain"
+        ]
+      },
+      {
+        "value": "bit.ly",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "url-shortener"
+        ]
+      },
+      {
+        "value": "cdn-update.top",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      },
+      {
+        "value": "iqrasec.example.org",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "microsoft.com",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "paypa1-helpdesk.top",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      },
+      {
+        "value": "update.microsoft.com",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "xn--pypal-4ve.com",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "punycode"
+        ]
+      }
+    ],
+    "email": [
+      {
+        "value": "billing@secure-invoice.xyz",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "soc@iqrasec.example.org",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "support@paypa1-helpdesk.top",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      }
+    ],
+    "md5": [
+      {
+        "value": "44d88612fea8a8f36de82e1278abb02f",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      }
+    ],
+    "sha1": [
+      {
+        "value": "3395856ce81f2b7382dee72602f798b642f14140",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      }
+    ],
+    "sha256": [
+      {
+        "value": "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f",
+        "count": 2,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      }
+    ],
+    "cve": [
+      {
+        "value": "CVE-2021-4034",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "CVE-2023-23397",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      }
+    ],
+    "mitre": [
+      {
+        "value": "T1059.001",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "T1071.001",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "T1547.001",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      },
+      {
+        "value": "T1566.001",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": []
+      }
+    ],
+    "filename": [
+      {
+        "value": "invoice_september.docm",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "macro/disk-image"
+        ]
+      },
+      {
+        "value": "invoice_viewer.dll",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "executable"
+        ]
+      },
+      {
+        "value": "run.ps1",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "executable"
+        ]
+      },
+      {
+        "value": "svchost_update.exe",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "executable"
+        ]
+      },
+      {
+        "value": "update.exe",
+        "count": 1,
+        "sources": [
+          "samples/incident_report.txt"
+        ],
+        "notes": [
+          "executable"
+        ]
+      }
+    ]
+  }
+}

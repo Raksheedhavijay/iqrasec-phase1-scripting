@@ -1,0 +1,3 @@
+# benign infrastructure - ignore
+microsoft.com
+iqrasec.example.org

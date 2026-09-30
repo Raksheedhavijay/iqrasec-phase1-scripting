@@ -1,0 +1,522 @@
+{
+  "tool": "IOCX",
+  "version": "1.0.0",
+  "generated_utc": "2026-09-28 06:54:20",
+  "defanged": false,
+  "sources": [
+    {
+      "name": "samples/allowlist.txt",
+      "sha256": "c72db949d8cec849a2a9515923fe776d6086c47ba9710735ceb1b026b78bd98c"
+    },
+    {
+      "name": "samples/incident_report.txt",
+      "sha256": "ab9457e8a775b5975e57db42b535388a0778bf0b8254ad5a7c98d6b0dfc85046"
+    },
+    {
+      "name": "samples/output/iocs.csv",
+      "sha256": "0cccc71f121e7ae6a11a0815dd015cbd13c19fcefaaacb35cc543daca2278069"
+    },
+    {
+      "name": "samples/output/iocs.json",
+      "sha256": "c83dbac4794af1c84a6a5a9cdf242ccd5dd5ddeaf778e2d90a9e2937d0322c73"
+    },
+    {
+      "name": "samples/output/report.html",
+      "sha256": "c2b17bbfa63a13d7e1b9cf401a12d6fd5e596290f442b2715c705db9e46bc748"
+    },
+    {
+      "name": "samples/output/report.md",
+      "sha256": "73699dc502cb80aab35c2ed772234ad2a51bad5935b14e164442eb3e2929a85d"
+    }
+  ],
+  "summary": {
+    "ipv4": 2,
+    "ipv6": 1,
+    "url": 6,
+    "domain": 9,
+    "email": 3,
+    "md5": 1,
+    "sha1": 1,
+    "sha256": 2,
+    "cve": 2,
+    "mitre": 4,
+    "filename": 5
+  },
+  "total_unique": 36,
+  "filtered_out": 3,
+  "iocs": {
+    "ipv4": [
+      {
+        "value": "91.215.85.17",
+        "count": 11,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      },
+      {
+        "value": "45.83.64.12",
+        "count": 7,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      }
+    ],
+    "ipv6": [
+      {
+        "value": "2a01:4f8:c17:1234::2",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      }
+    ],
+    "url": [
+      {
+        "value": "http://91.215.85.17:8080/stage2/update.exe",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "ip-in-url",
+          "non-standard-port",
+          "executable-download"
+        ]
+      },
+      {
+        "value": "http://bit.ly/3xYzAbC",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "url-shortener"
+        ]
+      },
+      {
+        "value": "https://secure-invoice.xyz/login/verify.php",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      },
+      {
+        "value": "http://91.215.85.17:8080/stage2/update.exe,1,samples/incident_report.txt,ip-in-url;non-standard-port;executable-download",
+        "count": 1,
+        "sources": [
+          "samples/output/iocs.csv"
+        ],
+        "notes": [
+          "ip-in-url",
+          "non-standard-port"
+        ]
+      },
+      {
+        "value": "http://bit.ly/3xYzAbC,1,samples/incident_report.txt,url-shortener",
+        "count": 1,
+        "sources": [
+          "samples/output/iocs.csv"
+        ],
+        "notes": [
+          "url-shortener"
+        ]
+      },
+      {
+        "value": "https://secure-invoice.xyz/login/verify.php,1,samples/incident_report.txt,suspicious-tld",
+        "count": 1,
+        "sources": [
+          "samples/output/iocs.csv"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      }
+    ],
+    "domain": [
+      {
+        "value": "secure-invoice.xyz",
+        "count": 16,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      },
+      {
+        "value": "bit.ly",
+        "count": 11,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "url-shortener"
+        ]
+      },
+      {
+        "value": "paypa1-helpdesk.top",
+        "count": 10,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      },
+      {
+        "value": "iqrasec.example.org",
+        "count": 8,
+        "sources": [
+          "samples/allowlist.txt",
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html"
+        ],
+        "notes": []
+      },
+      {
+        "value": "a1.b2.c3.d4.evil-cdn.click",
+        "count": 6,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "suspicious-tld",
+          "deep-subdomain"
+        ]
+      },
+      {
+        "value": "cdn-update.top",
+        "count": 6,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "suspicious-tld"
+        ]
+      },
+      {
+        "value": "xn--pypal-4ve.com",
+        "count": 6,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "punycode"
+        ]
+      },
+      {
+        "value": "microsoft.com",
+        "count": 5,
+        "sources": [
+          "samples/allowlist.txt",
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html"
+        ],
+        "notes": []
+      },
+      {
+        "value": "update.microsoft.com",
+        "count": 4,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html"
+        ],
+        "notes": []
+      }
+    ],
+    "email": [
+      {
+        "value": "billing@secure-invoice.xyz",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      },
+      {
+        "value": "support@paypa1-helpdesk.top",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      },
+      {
+        "value": "soc@iqrasec.example.org",
+        "count": 4,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html"
+        ],
+        "notes": []
+      }
+    ],
+    "md5": [
+      {
+        "value": "44d88612fea8a8f36de82e1278abb02f",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      }
+    ],
+    "sha1": [
+      {
+        "value": "3395856ce81f2b7382dee72602f798b642f14140",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      }
+    ],
+    "sha256": [
+      {
+        "value": "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f",
+        "count": 6,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      },
+      {
+        "value": "ab9457e8a775b5975e57db42b535388a0778bf0b8254ad5a7c98d6b0dfc85046",
+        "count": 3,
+        "sources": [
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      }
+    ],
+    "cve": [
+      {
+        "value": "CVE-2021-4034",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      },
+      {
+        "value": "CVE-2023-23397",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      }
+    ],
+    "mitre": [
+      {
+        "value": "T1059.001",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      },
+      {
+        "value": "T1071.001",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      },
+      {
+        "value": "T1547.001",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      },
+      {
+        "value": "T1566.001",
+        "count": 5,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": []
+      }
+    ],
+    "filename": [
+      {
+        "value": "update.exe",
+        "count": 11,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "executable"
+        ]
+      },
+      {
+        "value": "invoice_september.docm",
+        "count": 6,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "macro/disk-image"
+        ]
+      },
+      {
+        "value": "invoice_viewer.dll",
+        "count": 6,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "executable"
+        ]
+      },
+      {
+        "value": "run.ps1",
+        "count": 6,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "executable"
+        ]
+      },
+      {
+        "value": "svchost_update.exe",
+        "count": 6,
+        "sources": [
+          "samples/incident_report.txt",
+          "samples/output/iocs.csv",
+          "samples/output/iocs.json",
+          "samples/output/report.html",
+          "samples/output/report.md"
+        ],
+        "notes": [
+          "executable"
+        ]
+      }
+    ]
+  }
+}

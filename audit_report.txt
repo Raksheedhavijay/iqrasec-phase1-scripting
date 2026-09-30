@@ -1,0 +1,103 @@
+
+  _     _                  ____            
+ | |   (_)_ __  _   ___  _/ ___|  ___  ___ 
+ | |   | | '_ \| | | \ \/ /\___ \ / _ \/ __|
+ | |___| | | | | |_| |>  <  ___) |  __/ (__ 
+ |_____|_|_| |_|\__,_/_/\_\|____/ \___|\___|  Audit v1.0.0
+ IqraSec Academy | read-only Linux security checker
+ Started : 2026-09-28 12:22:43 IST
+
+>> SYSTEM INFORMATION
+------------------------------------------------------------
+  [ INFO ] Hostname : zorin
+  [ INFO ] OS       : Zorin OS 17.3
+  [ INFO ] Kernel   : 6.8.0-87-generic (x86_64)
+  [ INFO ] Uptime   : up 3 days, 16 minutes
+  [ INFO ] Run as   : root (uid 0)
+
+>> USER ACCOUNTS & AUTHENTICATION
+------------------------------------------------------------
+  [ PASS ] Only 'root' has UID 0
+  [ PASS ] No duplicate UIDs
+  [ PASS ] No accounts with empty passwords
+  [ WARN ] Password expiry not enforced (PASS_MAX_DAYS=99999)
+           -> Fix: set PASS_MAX_DAYS in /etc/login.defs
+  [ WARN ] Passwordless sudo (NOPASSWD) rules present
+           -> Fix: review with: visudo
+           _gvm ALL = NOPASSWD: /usr/sbin/openvas
+  [ INFO ] Accounts with an interactive shell: root,sync,radha,postgres
+
+>> CRITICAL FILE PERMISSIONS
+------------------------------------------------------------
+  [ PASS ] /etc/passwd permissions OK (644, owner root)
+  [ PASS ] /etc/group permissions OK (644, owner root)
+  [ PASS ] /etc/shadow permissions OK (640, owner root)
+  [ PASS ] /etc/gshadow permissions OK (640, owner root)
+  [ PASS ] /etc/sudoers permissions OK (440, owner root)
+  [ PASS ] /etc/ssh/sshd_config permissions OK (644, owner root)
+  [ PASS ] /etc/crontab permissions OK (644, owner root)
+
+>> SSH SERVER CONFIGURATION
+------------------------------------------------------------
+  [ PASS ] Root login over SSH is restricted (without-password)
+  [ WARN ] Password authentication is enabled (yes)
+           -> Fix: use keys and set 'PasswordAuthentication no'
+  [ PASS ] Empty SSH passwords not permitted
+  [ WARN ] MaxAuthTries is 6 (recommended <= 4)
+           -> Fix: set 'MaxAuthTries 3'
+  [ WARN ] X11 forwarding enabled
+           -> Fix: set 'X11Forwarding no' unless needed
+  [ INFO ] SSH listens on port 22
+
+>> NETWORK EXPOSURE & FIREWALL
+------------------------------------------------------------
+  [ INFO ] Ports reachable from the network: tcp/1716 tcp/22 tcp/3001 tcp/3389 tcp/3790 tcp/7071 tcp/80 udp/1716 udp/41641 udp/50001 udp/51676 udp/51693 udp/5353
+  [ FAIL ] Risky services exposed: 3389=RDP
+           -> Fix: disable the service or bind it to 127.0.0.1 / firewall it
+  [ FAIL ] UFW firewall is inactive
+           -> Fix: sudo ufw enable
+
+>> FILESYSTEM RISKS
+------------------------------------------------------------
+  [ PASS ] /tmp has the sticky bit set
+  [ PASS ] No world-writable files in system directories
+  [ INFO ] SUID binaries found: 22
+  [ PASS ] All SUID binaries are on the common/expected list
+
+>> PATCH STATUS
+------------------------------------------------------------
+  [ FAIL ] 492 pending updates, 409 security-related
+           -> Fix: sudo apt update && sudo apt upgrade
+
+>> AUTHENTICATION LOG ANALYSIS
+------------------------------------------------------------
+  [ INFO ] Source: /var/log/auth.log
+  [ PASS ] Failed SSH logins are low (0)
+  [ INFO ] Attempts against non-existent users: 0
+
+>> KERNEL HARDENING
+------------------------------------------------------------
+  [ PASS ] ASLR fully enabled (kernel.randomize_va_space=2)
+  [ PASS ] SYN-flood protection (net.ipv4.tcp_syncookies=1)
+  [ WARN ] IP forwarding disabled: NOT met (net.ipv4.ip_forward=1, expected 0)
+           -> Fix: sysctl -w net.ipv4.ip_forward=0  (expected =1 on Docker/VM/VPN/router hosts)
+  [ PASS ] ICMP redirects ignored (net.ipv4.conf.all.accept_redirects=0)
+  [ PASS ] Reverse-path filtering (strict or loose) (net.ipv4.conf.all.rp_filter=2)
+  [ PASS ] No core dumps from SUID programs (fs.suid_dumpable=0)
+  [ PASS ] dmesg restricted to root (kernel.dmesg_restrict=1)
+
+>> SERVICES & SECURITY CONTROLS
+------------------------------------------------------------
+  [ WARN ] Legacy/risky services running: avahi-daemon
+           -> Fix: systemctl disable --now <service>
+  [ INFO ] fail2ban is not running (optional brute-force protection)
+  [ PASS ] AppArmor is enabled
+
+============================================================
+ AUDIT SUMMARY
+============================================================
+  PASS: 23   WARN: 7   FAIL: 3   INFO: 12
+  Security score : 80/100  (grade B)  [################....]
+  Action needed: fix the FAIL items first, then the WARN items.
+  Report saved to: audit_report.txt
+
